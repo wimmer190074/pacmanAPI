@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from database import Database
+from .database import Database
 
 class PathFinder:
     def __init__(self):
@@ -59,5 +59,3 @@ class PathFinder:
     #listst = [adj1, adj2]
     #PathFinder.add_postOffice("Post Office Vienna", listst)
 
-col = PathFinder().remove_postOffice(6)
-print(col)

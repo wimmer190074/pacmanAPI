@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model import PostOffice, Edge, Base
+from .model import PostOffice, Edge, Base
 
 class Database:
     # Create engine and sessionmaker
@@ -91,10 +91,8 @@ class Database:
     def delete_post_office(self, id_):
         session = self.Session()
         post_office = session.query(PostOffice).filter_by(id=id_).first()
-        print(id_)
         if post_office:
             session.delete(post_office)
-            print("leeeeeeeeeeeeeeeeeeeeeel")
         session.commit()
         session.close()
 
