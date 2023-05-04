@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-class PostOffice    (Base):
+class PostOffice(Base):
     __tablename__ = 'post_office'
     id = Column(Integer, primary_key=True)
     name = Column(String)

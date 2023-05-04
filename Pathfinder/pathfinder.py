@@ -11,7 +11,7 @@ class PathFinder:
             # The via nodes are already in the shortest path
             shortest_path = nx.shortest_path(self.G, start, end, weight="weight")
             return shortest_path
-        else:
+        else:   
             # Find the shortest path that includes the via nodes
             paths_via = [nx.shortest_path(self.G, start, via[0], weight="weight")]
             for i in range(1, len(via)):
@@ -46,13 +46,12 @@ class PathFinder:
             if _return is not None: 
                 print("The " + _return + " didn't exist and was therefore created.")
 
-    def remove_postOffice(name, self):
+    def remove_postOffice(self, id):
         #remove edges of this thing
-        postOfficeId = Database().get_post_office_by_name(name)
-        Database().delete_edge(postOfficeId)
-        Database().delete_post_office(postOfficeId)
-        name_ = Database().get_post_office_by_id(postOfficeId)
-        print("Post Office " + name_ + " was removed.")
+        Database().delete_edge(id)
+        Database().delete_post_office(id)
+        name_ = Database().get_post_office_by_id(id)
+        print("Post Office " + str(name_) + " was removed.")
 
 
     #adj1 = ('Post Office Graz', '200')
@@ -60,6 +59,5 @@ class PathFinder:
     #listst = [adj1, adj2]
     #PathFinder.add_postOffice("Post Office Vienna", listst)
 
-
-if __name__ == '__main__':
-    PathFinder().remove_postOffice(6)
+col = PathFinder().remove_postOffice(6)
+print(col)

@@ -88,11 +88,13 @@ class Database:
         return edge
 
     # Delete objects from the database
-    def delete_post_office(self, id):
+    def delete_post_office(self, id_):
         session = self.Session()
-        post_office = session.query(PostOffice).filter_by(id=id).first()
+        post_office = session.query(PostOffice).filter_by(id=id_).first()
+        print(id_)
         if post_office:
             session.delete(post_office)
+            print("leeeeeeeeeeeeeeeeeeeeeel")
         session.commit()
         session.close()
 
@@ -113,3 +115,4 @@ class Database:
 
 
 col = Database().delete_edge(6)
+print(col)
