@@ -1,0 +1,1 @@
+INSERT INTO Edges (start, end, distance) VALUES ('2', '1')
