@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from .database import Database
+from database import Database
 
 class PathFinder:
     def __init__(self):
@@ -24,7 +24,7 @@ class PathFinder:
                 return shortest_path
             else:
                 return nx.shortest_path(self.G, start, end, weight="weight")
-        
+
     def calculate_total_distance(self, path):
         total_distance = sum([self.G[path[i]][path[i+1]]["weight"] for i in range(len(path)-1)])
         return total_distance
@@ -54,8 +54,7 @@ class PathFinder:
         print("Post Office " + str(name_) + " was removed.")
 
 
-    #adj1 = ('Post Office Graz', '200')
-    #adj2 = ('Post Office St.Pölten', '70')
-    #listst = [adj1, adj2]
-    #PathFinder.add_postOffice("Post Office Vienna", listst)
-
+adj1 = ('Post Office Graz', '200')
+adj2 = ('Post Office St.Pölten', '70')
+listst = [adj1, adj2]
+PathFinder.add_postOffice("Post Office Vienna", listst)
