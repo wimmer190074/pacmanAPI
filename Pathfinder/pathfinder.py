@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from database import Database
+from .database import Database
 
 class PathFinder:
     def __init__(self):
@@ -11,7 +11,7 @@ class PathFinder:
             # The via nodes are already in the shortest path
             shortest_path = nx.shortest_path(self.G, start, end, weight="weight")
             return shortest_path
-        else:   
+        else:
             # Find the shortest path that includes the via nodes
             paths_via = [nx.shortest_path(self.G, start, via[0], weight="weight")]
             for i in range(1, len(via)):
@@ -54,7 +54,7 @@ class PathFinder:
         print("Post Office " + str(name_) + " was removed.")
 
 
-adj1 = ('Post Office Graz', '200')
-adj2 = ('Post Office St.Pölten', '70')
-listst = [adj1, adj2]
-PathFinder.add_postOffice("Post Office Vienna", listst)
+#adj1 = ('Post Office Graz', '200')
+#adj2 = ('Post Office St.Pölten', '70')
+#listst = [adj1, adj2]
+#PathFinder.add_postOffice("Post Office Vienna", listst)

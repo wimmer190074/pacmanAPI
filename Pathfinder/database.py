@@ -20,16 +20,17 @@ class Database:
 
     def create_edge(self, start, end, distance):
         session = self.Session()
+        endN = end
         nStart = self.get_post_office_by_name(start)
         nEnd = self.get_post_office_by_name(end)
         if nEnd is None:
             self.create_post_office(end, end.split(" ")[2:][0])
-            return end
         end_id = self.get_post_office_by_name(end)
         edge = Edge(start=nStart, end=end_id, distance=distance)
         session.add(edge)
         session.commit()
         session.close()
+        return endN
 
     # Retrieve objects from the database
     def get_all_post_offices(self):
@@ -110,7 +111,3 @@ class Database:
                 session.delete(edge)
         session.commit()
         session.close()
-
-
-col = Database().delete_edge(6)
-print(col)
